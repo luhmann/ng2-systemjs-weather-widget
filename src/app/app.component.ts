@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, AfterContentInit} from '@angular/core';
 
 import {WeatherWidget} from './weather-widget/weather-widget.component';
 import {OpenWeatherApi} from './weather-widget/open-weather-api.service';
@@ -11,15 +11,15 @@ import {OpenWeatherApi} from './weather-widget/open-weather-api.service';
     <div class="app" [class.app_loading]="isLoading">
       <weather city="Berlin"></weather>
       <weather city="Hamburg"></weather>
-      <weather city="Munich"></weather>
+      <weather city="München"></weather>
       <weather city="New York"></weather>
-      <weather city="Tokio"></weather>
+      <weather city="Tokyo"></weather>
     </div>
     `,
   providers: [OpenWeatherApi]
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements AfterContentInit {
   isLoading = true;
 
-  ngOnInit() { this.isLoading = false; }
+  ngAfterContentInit() { this.isLoading = false; }
 }
